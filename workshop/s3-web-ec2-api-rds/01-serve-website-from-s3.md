@@ -39,12 +39,12 @@ Every application needs to have some configurations that inherently will vary be
 
 1. Go to **[S3](https://console.aws.amazon.com/s3/)** under "Storage" section of Services list.
 2. See details of the bucket you just created and copy its name.
-3. Go to **[EC2](https://console.aws.amazon.com/ec2/)** under "Compute" section Services list.
+3. Go to **[Systems Manager](https://console.aws.amazon.com/systems-manager/)** under "Management & Governance" section of Services list.
 4. On the left menu select **Parameter Store**.
 5. Click **Create Parameter**.
 6. Enter `/prod/codebuild/WEBSITE_BUCKET_NAME` as name and a meaningful description of what the parameter means (ie. "name of the website bucket").
 7. Enter `s3://<your-bucket-name>` as value.
-8. Click create parameter.
+8. Click "Create parameter" button.
 
 Now we can retrieve the bucket name with `aws ssm get-parameter` like we did [here](/buildspec.frontend.yml). Also, we can use [AWS SSM Agent](http://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html) to manage our instances' configuration from the AWS web console.
 
@@ -53,14 +53,14 @@ Now we can retrieve the bucket name with `aws ssm get-parameter` like we did [he
 
 With [AWS Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html), you can specify different permissions regarding every AWS resource you use. For example, you can create a policy for enabling full access to a specific S3 bucket, and that is what we are going to do. We will need this in the future to build the project programmatically and store it on S3.
 
-1. Go to **IAM** under **Security, Identity & Compliance**.
-2. Click in Policies.
-3. Click in Create Policy.
-4. Click **Import managed policy**.
-5. Search and select `AmazonS3FullAccess` (this is a premade policy, but you can also build your own).
+1. Go to **[IAM](https://console.aws.amazon.com/iam/)** under "Security, Identity & Compliance" section of Service list.
+2. Click in **Policies**.
+3. Click in **Create Policy**.
+4. Click **Import managed policy** link.
+5. Search and select `AmazonS3FullAccess` (this is a premade policy by AWS, but you can also build your own).
 6. Click the **JSON** tab and change the `Resource` value to `["arn:aws:s3:::<your-bucket-name>", "arn:aws:s3:::<your-bucket-name>/*"]` in the JSON content.
 7. Click **Review policy**
-8. Choose a name for the policy (eg. S3WebsiteFullAccess) and click in Create Policy.
+8. Choose a name for the policy (eg. `S3WebsiteFullAccess`) and click in Create Policy.
 
 Now we have a policy that allows full access (list, write, update, delete, etc) to our website bucket. Let’s see how we can use it in the following section.
 
@@ -71,16 +71,21 @@ As we mentioned earlier, [AWS CodeBuild](https://aws.amazon.com/codebuild/) is a
 
 Follow these steps to get it ready:
 
-1. Go to **CodeBuild** under the **Developer Tools** section.
-2. Click on Get Started (or Create Project if you had other projects).
-3. Choose a project name and write an description (optional).
+1. Go to **CodeBuild** under the "Developer Tools" section of Service list.
+2. Click on **Getting Started** (or **Create Project** if you had other projects).
+3. Choose a project name (eg. `website-workshop`)and write an description (optional).
 4. On the Source section:
   1. Choose **Github** as the source provider.
   2. Select an option for the repository.
   3. Connect Github with AWS if neccesary.
-  4. Fill the repository URL or choose one repository from your Github account.
-5. On the Environment section:
-  1. Choose Ubuntu as the OS and Node.js as the Runtime.
+  4. Fill the **Repository URL** or choose one repository from your Github account.
+5. On the **Environment** section:
+  1. Choose Ubuntu as the OS as the Operating system
+  2. Choose `aws/codebuild/standard:2:0` as the **Image**
+  3. Change **Image version** 
+  4, Change the BuildSpec name to `buildspec.frontend.yml` (our yaml file with the steps to follow).
+  
+  1. Choose Ubuntu as the OS and Node.js as the Runtime. 
   2. Select  `aws/codebuild/nodejs:7.0.0` as the Version.
   3. Change the BuildSpec name to `buildspec.frontend.yml` (our yaml file with the steps to follow).
 6. In the Artifacts section select _No artifacts_.
@@ -88,7 +93,8 @@ Follow these steps to get it ready:
   1. Select Create a service role in your account.
   2. Choose a name for the Role and name it `codebuild-aws-workshop-service-role`.
 8. Click on Continue.
-9. Click on Save.
+8. Click **Create build project**
+9. Click on Save. ** Create build project**
 
 Now, we have created a CodeBuild application. We won’t be able to run it though, because we don’t have permissions to add files to our S3 bucket. That is why earlier we created the policy and also something called a "role". For everything to work, we need to attach the policy to the role.
 
