@@ -17,7 +17,7 @@ First we are going to create the user for the AWS console:
 5. Enter a username and check the option: **AWS Management Console access** under the **Select AWS access type** section. You should also mark the option so that the user is forced to change his password on next login (pick a secure password!). Then click **Next: Permission**
 6. Select **Attach existing policies directly**.
 7. Search for: `AdministratorAccess`, check it and click **Next: Tags**.
-8. Add key-value pairs for additional information about the user, for example Key: "purpose", Value: "Workshop" and then  click **Next: Review**.
+8. Add key-value pairs for additional information about the user, for example Key: `purpose`, Value: `Workshop` and then  click **Next: Review**.
 8. Click on **Create user**. Copy the url and password that appear in the Success message.
 
 Now, lets login with our new user:
