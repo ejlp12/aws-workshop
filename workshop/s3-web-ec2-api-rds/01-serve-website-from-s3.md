@@ -4,7 +4,7 @@
 
 First we need to create a bucket from where we are going to serve the website.
 
-1. On your AWS Console, go to **[S3](https://console.aws.amazon.com/s3/)** under **Storage section** and click on **+ Create bucket** button.
+1. On your AWS Console, go to **[S3](https://console.aws.amazon.com/s3/)** under "Storage" section and click on **+ Create bucket** button.
 2. Enter the name of the bucket. Remember, bucket names must be unique across all existing accounts and regions in AWS. You cannot rename a bucket after it is created, so chose the name wisely. Amazon suggests using DNS-compliant bucket names. You should read more about this [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules).
 3. Pick a region for the S3 bucket. You can chose any region you like, but beware that Amazon has [different pricing](https://aws.amazon.com/s3/pricing/) for storage in different regions. In this case (though it won't matter too much) we will pick `US East (N. Virginia)`.
 4. Click Next until the Review section then click **Create bucket**. We will configure the properties later.
@@ -13,7 +13,7 @@ First we need to create a bucket from where we are going to serve the website.
 7. Click **Save** button.
 8. Go to **Permissions** tab.
 9. On the **Block Public Access** section, click **Edit**, uncheck **Block _all_ public access**, **Save** and **Confirm**.
-10. Then go to **Bucket Policy** section and add the following policy to make every object readable. Change `your-bucket-name` with your real bucket name:
+10. Then go to **Bucket Policy** section and add the following policy to make every object readable. Change `<your-bucket-name>` with your real bucket name:
   ```
   {
       "Version": "2012-10-17",
@@ -37,9 +37,9 @@ Every application needs to have some configurations that inherently will vary be
 
 [AWS Parameters Store](http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) is a service designed for just this, and we will use it to store variables of our system. This will enable us to store constants and later use them during other steps of the deployment. We will start by storing the bucket name.
 
-1. Go to **S3** under **Storage** **section**.
+1. Go to **[S3](https://console.aws.amazon.com/s3/)** under "Storage" section of Services list.
 2. See details of the bucket you just created and copy its name.
-3. Go to **EC2** under **Compute section**.
+3. Go to **[EC2](https://console.aws.amazon.com/ec2/)** under "Compute" section Services list.
 4. On the left menu select **Parameter Store**.
 5. Click **Create Parameter**.
 6. Enter `/prod/codebuild/WEBSITE_BUCKET_NAME` as name and a meaningful description of what the parameter means (ie. "name of the website bucket").
