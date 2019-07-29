@@ -4,12 +4,12 @@ The API of our application will run on several [AWS EC2](https://aws.amazon.com/
 
 First we will create a role to allow our EC2 instances access to SSM:
 
-1. Go to **IAM** under **Security, Identity & Compliance**.
-2. Go to Role section and click Create Role.
-3. Select **AWS Service** and then **EC2**.
-4. Under **Select your use case**, select the one that says _"Allows EC2 instances to call AWS services on your behalf."_ and click next.
-5. Search for `AmazonSSMReadOnlyAccess`, select it and click next.
-6. Lets call it `ApiRole`. Click create Role.
+1. Go to **IAM** under **Security, Identity & Compliance** section.
+2. Go to **Role** section and click **Create Role**.
+3. Select **AWS Service** and then **EC2** the one that says _"Allows EC2 instances to call AWS services on your behalf."_ and click **Next: Permission**.
+5. Search for `AmazonSSMReadOnlyAccess`, select it and click **Next: Tags**.
+6. Add Tags, with anything you like and click **Next: Review**
+7. Lets call it `WebsiteWorkshopApiRole` as **Role Name**. Click **Create Role**.
 
 We have already created entries in the Parameter Store. In the future we will need encrypted variables, like the password for our database. For this, will create an encryption key to encrypt and decrypt those values. That encryption key will be attached to our admin user and to the role we just created, so only services that are setup to assume the role can get access to the decrypted values. You can read more about SSM and secure data [here](https://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/).
 
