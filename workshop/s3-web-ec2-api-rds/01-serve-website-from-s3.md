@@ -13,7 +13,7 @@ First we need to create a bucket from where we are going to serve the website.
 7. Click **Save** button.
 8. Go to **Permissions** tab.
 9. On the **Block Public Access** section, click **Edit**, uncheck **Block _all_ public access**, **Save** and **Confirm**.
-9. Then go to **Bucket Policy** section and add the following policy to make every object readable:
+10. Then go to **Bucket Policy** section and add the following policy to make every object readable. Change `your-bucket-name` with your real bucket name:
   ```
   {
       "Version": "2012-10-17",
@@ -28,8 +28,7 @@ First we need to create a bucket from where we are going to serve the website.
       ]
   }
   ```
-  > Change `your-bucket-name` with your real bucket name
-10. Click **Save**
+11. Click **Save**
 
 
 ## Add `WEBSITE_BUCKET_NAME` to the Parameters Store
