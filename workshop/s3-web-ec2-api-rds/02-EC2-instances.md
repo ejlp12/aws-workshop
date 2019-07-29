@@ -36,14 +36,14 @@ We are ready to launch our first EC2 instance. We will create a standard EC2 ins
 5. Select our `WebsiteWorkshopApiRole` on **IAM role**.
 6. On Advanced Details, select "As text" in User data and then paste the following bash script:
     ```
-#!/bin/bash
-export LC_ALL=C.UTF-8
-apt update
-apt -y install ruby
-cd /home/ubuntu
-wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
-chmod +x ./install
-./install auto
+    #!/bin/bash
+    export LC_ALL=C.UTF-8
+    apt update
+    apt -y install ruby
+    cd /home/ubuntu
+    wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install
+    chmod +x ./install
+    ./install auto
     ```
 
     Be careful, if you leave spaces at the beginning of the script it will not work. So NO SPACES!
