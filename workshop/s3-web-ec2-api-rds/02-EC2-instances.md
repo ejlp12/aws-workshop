@@ -34,7 +34,7 @@ We are ready to launch our first EC2 instance. We will create a standard EC2 ins
 3. Look for Ubuntu Server (make sure it says Free tier eligible) and click Select.
 4. Select `t2.micro` and then click on **Next: Configure Instance Details**.
 5. Select our `WebsiteWorkshopApiRole` on **IAM role**.
-6. On Advanced Details, select "As text" in User data and then paste the following bash script:
+6. On Advanced Details, select **As text** in **User data** and then paste the following bash script:
     ```
     #!/bin/bash
     export LC_ALL=C.UTF-8
@@ -48,6 +48,8 @@ We are ready to launch our first EC2 instance. We will create a standard EC2 ins
 
     Be careful, if you leave spaces at the beginning of the script it will not work. So NO SPACES!
     If you had used another region, the bucket name in the `wget` line would be different (see [here](https://docs.aws.amazon.com/codedeploy/latest/userguide/resource-kit.html#resource-kit-bucket-names)).
+    
+    This script will be executed when the EC2 instance launched.
 
 7. Click **Next: Add Storage**.
 8. Leave the default settings and click **Next: Add Tags**.
