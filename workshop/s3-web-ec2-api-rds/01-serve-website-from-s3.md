@@ -71,9 +71,9 @@ As we mentioned earlier, [AWS CodeBuild](https://aws.amazon.com/codebuild/) is a
 
 Follow these steps to get it ready:
 
-1. Go to **CodeBuild** under the "Developer Tools" section of Service list.
+1. Go to **[CodeBuild](https://console.aws.amazon.com/codesuite/codebuild/)** under the "Developer Tools" section of Service list.
 2. Click on **Getting Started** (or **Create Project** if you had other projects).
-3. Choose a project name (eg. `website-workshop`)and write an description (optional).
+3. Choose a project name (eg. `aws-workshop`)and write an description (optional).
 4. On the Source section:
    1. Choose **Github** as the source provider.
    2. Select an option for the repository.
@@ -81,13 +81,15 @@ Follow these steps to get it ready:
    4. Fill the **Repository URL** or choose one repository from your Github account.
 5. On the **Environment** section:
    1. Choose Ubuntu as the OS as the Operating system
-   2. Choose `aws/codebuild/standard:2:0` as the **Image**
-   3. Change **Image version** 
-   4. Change the BuildSpec name to `buildspec.frontend.yml` (our yaml file with the steps to follow).
-6. In the Artifacts section select _No artifacts_.
+   2. Choose **Standard** as **Runtime(s)**
+   3. Choose `aws/codebuild/standard:2:0` as the **Image**
+   4. Choose **Always use the latest image for this runtime version** as **Image version** 
+   5. Select **New service role** in your account.
+   6. Choose a name for the Role and name it `codebuild-aws-workshop-service-role`.   
+6. In the **Buildspec** section, choose **Use buildspec file** and change the BuildSpec name to `buildspec.frontend.yml` (our yaml file with the steps to follow).
+6. In the **Artifacts** section select _No artifacts_.
 7. In the Service Role section:
-  1. Select Create a service role in your account.
-  2. Choose a name for the Role and name it `codebuild-aws-workshop-service-role`.
+
 8. Click on Continue.
 8. Click **Create build project**
 9. Click on Save. ** Create build project**
@@ -102,16 +104,16 @@ Earlier, we created a policy to allow full access to our S3 bucket and assigned 
 
 **Website full access**
 
-1. Go to IAM under Security, Identity & Compliance.
-2. Click in Roles.
-3. You should see the role created in the CodeBuild project creation, select it.
-4. Click Attach Policy.
-5. Search for the Policy for full access to the S3 website bucket, select it and then click Attach Policy.
+1. Go to **[IAM](https://console.aws.amazon.com/iam/)** under "Security, Identity & Compliance".
+2. Click in **Roles**.
+3. You should see the role created in the CodeBuild project creation, select it. You can also search from the search box using `codebuild-aws-workshop-service-role`. Click role name shown in the list
+4. In the **Permission** tab, click **Attach Policies** button.
+5. Search for the Policy for full access to the S3 website bucket (`S3WebsiteFullAccess`), select it and then click **Attach Policy**.
 
-**SSM read access**
+**AWS Systems Manager (SSM) read access**
 
-1. Click Attach Policy again.
-2. Search for `AmazonSSMReadOnlyAccess` and click on Attach.
+1. Click **Attach Policy** again.
+2. Search for `AmazonSSMReadOnlyAccess` and select it then click on **Attach Policy**.
 
 ---
 **Extra mile:** try get the value of `WEBSITE_BUCKET_NAME` from the command line.
