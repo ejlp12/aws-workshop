@@ -4,15 +4,15 @@
 
 First we need to create a bucket from where we are going to serve the website.
 
-1. On your AWS Console, go to **S3** under **Storage section** and click on Create bucket.
+1. On your AWS Console, go to **[S3](https://console.aws.amazon.com/s3/)** under **Storage section** and click on **+ Create bucket** button.
 2. Enter the name of the bucket. Remember, bucket names must be unique across all existing accounts and regions in AWS. You cannot rename a bucket after it is created, so chose the name wisely. Amazon suggests using DNS-compliant bucket names. You should read more about this [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules).
 3. Pick a region for the S3 bucket. You can chose any region you like, but beware that Amazon has [different pricing](https://aws.amazon.com/s3/pricing/) for storage in different regions. In this case (though it won't matter too much) we will pick `US East (N. Virginia)`.
-4. Click Create. We will configure the properties later.
-5. Once created, click on the name of your bucket, go to properties, click **Static website hosting** check the option **Use this bucket to host a website**
+4. Click Next until the Review section then click **Create bucket**. We will configure the properties later.
+5. Once created, click on the name of your bucket, go to **Properties**, click **Static website hosting** check the option **Use this bucket to host a website**
 6. As index and error document put: `index.html`. Later, we will go to the **endpoint url** specified at the top to access our website.
-7. Click Save.
+7. Click **Save** button.
 8. Go to **Permissions** tab.
-9. On the **Public Access Settings** section, click **Edit** , uncheck both options under **Manage public bucket policies**, save and confirm.
+9. On the **Block Public Access** section, click **Edit**, uncheck **Block _all_ public access**, **Save** and **Confirm**.
 9. Then go to **Bucket Policy** section and add the following policy to make every object readable:
   ```
   {
@@ -28,8 +28,8 @@ First we need to create a bucket from where we are going to serve the website.
       ]
   }
   ```
-
-10. Click Save
+  > Change `your-bucket-name` with your real bucket name
+10. Click **Save**
 
 
 ## Add `WEBSITE_BUCKET_NAME` to the Parameters Store
