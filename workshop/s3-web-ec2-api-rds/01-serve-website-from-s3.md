@@ -75,19 +75,15 @@ Follow these steps to get it ready:
 2. Click on **Getting Started** (or **Create Project** if you had other projects).
 3. Choose a project name (eg. `website-workshop`)and write an description (optional).
 4. On the Source section:
-  1. Choose **Github** as the source provider.
-  2. Select an option for the repository.
-  3. Connect Github with AWS if neccesary.
-  4. Fill the **Repository URL** or choose one repository from your Github account.
+   1. Choose **Github** as the source provider.
+   2. Select an option for the repository.
+   3. Connect Github with AWS if neccesary.
+   4. Fill the **Repository URL** or choose one repository from your Github account.
 5. On the **Environment** section:
-  1. Choose Ubuntu as the OS as the Operating system
-  2. Choose `aws/codebuild/standard:2:0` as the **Image**
-  3. Change **Image version** 
-  4, Change the BuildSpec name to `buildspec.frontend.yml` (our yaml file with the steps to follow).
-  
-  1. Choose Ubuntu as the OS and Node.js as the Runtime. 
-  2. Select  `aws/codebuild/nodejs:7.0.0` as the Version.
-  3. Change the BuildSpec name to `buildspec.frontend.yml` (our yaml file with the steps to follow).
+   1. Choose Ubuntu as the OS as the Operating system
+   2. Choose `aws/codebuild/standard:2:0` as the **Image**
+   3. Change **Image version** 
+   4. Change the BuildSpec name to `buildspec.frontend.yml` (our yaml file with the steps to follow).
 6. In the Artifacts section select _No artifacts_.
 7. In the Service Role section:
   1. Select Create a service role in your account.
