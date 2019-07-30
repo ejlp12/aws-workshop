@@ -12,17 +12,17 @@ You must have an AWS account. Even though you mostly will be in the free tier, s
 
 If you want to, you can [set up a billing alarm](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-alarms.html) to avoid these situations, just in case.
 
-> **TryoTip:** if you are doing this workshop as part of Tryolabs training, feel free to ask for access to the **Tryolabs Playground AWS account**. This way, you will not have to put your own credit card.
 
 # Content
 
 This workshop contains the following sections:
 
-1. [Set up users](/workshop/set-up-users.md).
-2. [S3, RDS and EC2](/workshop/s3-web-ec2-api-rds/introduction.md). Here, you will deploy the website on S3, the backend will store the data using RDS and the API will be deployed on EC2.
-3. [Load Balancer and Auto Scaling Group](/workshop/elb-auto-scaling-group/introduction.md).
-4. [VPC configuration and Bastion instance](/workshop/vpc-subnets-bastion/introduction.md). Here, you will setup your own VPC with public and private subnets, modify your Auto Scaling Group and Load Balancer to work with those and add a Bastion to access to your API instances through SSH.
-5. [Beanstalk](/workshop/beanstalk/introduction.md). Here we will learn how to use Beanstalk to setup and manage our backend (EC2 + ASG + ELB) without handcrafting every detail of the setup.
+1. [Fork this Github repo](https://github.com/ejlp12/aws-workshop/fork) to your own account. If you don't have Github account, [create one](https://github.com/join)
+2. [Set up users](/workshop/set-up-users.md).
+3. [S3, RDS and EC2](/workshop/s3-web-ec2-api-rds/introduction.md). Here, you will deploy the website on S3, the backend will store the data using RDS and the API will be deployed on EC2.
+4. [Load Balancer and Auto Scaling Group](/workshop/elb-auto-scaling-group/introduction.md).
+5. [VPC configuration and Bastion instance](/workshop/vpc-subnets-bastion/introduction.md). Here, you will setup your own VPC with public and private subnets, modify your Auto Scaling Group and Load Balancer to work with those and add a Bastion to access to your API instances through SSH.
+6. [Beanstalk](/workshop/beanstalk/introduction.md). Here we will learn how to use Beanstalk to setup and manage our backend (EC2 + ASG + ELB) without handcrafting every detail of the setup.
 
 ---
 
