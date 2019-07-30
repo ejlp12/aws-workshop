@@ -78,7 +78,7 @@ Follow these steps to get it ready:
    1. Choose **Github** as the source provider.
    2. Select an option for the repository.
    3. Connect Github with AWS if neccesary.
-   4. Fill the **Repository URL** or choose one repository from your Github account.
+   4. Fill the **Repository URL** (`https://github.com/ejlp12/aws-workshop`) or choose one repository from your Github account.
 5. On the **Environment** section:
    1. Choose Ubuntu as the OS as the Operating system
    2. Choose **Standard** as **Runtime(s)**
@@ -92,7 +92,7 @@ Follow these steps to get it ready:
 
 8. Click on Continue.
 8. Click **Create build project**
-9. Click on Save. ** Create build project**
+9. Click on Save. **Create build project**
 
 Now, we have created a CodeBuild application. We won’t be able to run it though, because we don’t have permissions to add files to our S3 bucket. That is why earlier we created the policy and also something called a "role". For everything to work, we need to attach the policy to the role.
 
