@@ -96,6 +96,8 @@ Follow these steps to get it ready:
 
 Now, we have created a CodeBuild application. We won’t be able to run it though, because we don’t have permissions to add files to our S3 bucket. That is why earlier we created the policy and also something called a "role". For everything to work, we need to attach the policy to the role.
 
+> You will need some others parameters for the API backend to make the CodeBuild project able to run successfully.
+
 ## Attach policies to the CodeBuild role
 
 A [Role](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) defines permissions inside AWS. Those permissions come in the form of policies, just like in the case of your AWS user. Things like certain EC2 services (and even instances) which need to execute some actions can run attached to a certain role, and will thus get whatever permissions the role has.
