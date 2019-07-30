@@ -9,7 +9,7 @@ First we need to create a bucket from where we are going to serve the website.
 3. Pick a region for the S3 bucket. You can chose any region you like, but beware that Amazon has [different pricing](https://aws.amazon.com/s3/pricing/) for storage in different regions. In this case (though it won't matter too much) we will pick `US East (N. Virginia)`.
 4. Click Next until the Review section then click **Create bucket**. We will configure the properties later.
 5. Once created, click on the name of your bucket, go to **Properties**, click **Static website hosting** check the option **Use this bucket to host a website**
-6. As index and error document put: `index.html`. Later, we will go to the **endpoint url** specified at the top to access our website.
+6. As index and error document put: `index.html`. Take a note of  **Endpoint url** specified at the top. Later, we will go to the endpoint url to access our website. 
 7. Click **Save** button.
 8. Go to **Permissions** tab.
 9. On the **Block Public Access** section, click **Edit**, uncheck **Block _all_ public access**, **Save** and **Confirm**.
