@@ -3,10 +3,11 @@
 We are almost done. We have to add some more parameters and we are ready to deploy the whole project.
 
 ## Create API_URL on Parameter Store
-1. Go to **EC2** under **Compute** section.
+1. Go to **[EC2](https://console.aws.amazon.com/ec2/)** under **Compute** section.
 2. Select your instance.
 3. Copy the **Public DNS** under **Description**.
-4. On the left menu select **Parameter Store**.
+4. Go to **[System Manger](https://console.aws.amazon.com/systems-manager/)** under "Management & Governance" section of Services list  
+5. On the left menu select **Parameter Store**.
 5. Click **Create Parameter**.
 6. Enter  `/prod/frontend/API_URL` as name and `http://<public dns you copied>:9000` as value.
 7. Click **Create Parameter** and close.
