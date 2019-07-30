@@ -51,7 +51,7 @@ After sucessful deployment, let's try to test the backend application.
 ---
 **Extra mile:** once the deploy finished:
 
-- Try hitting the API with something like [Postman](https://www.getpostman.com/) or [httpie](https://httpie.org/). Explore more [about the backend application here](backend/README.md)
+- Try hitting the API with something like [Postman](https://www.getpostman.com/) or [httpie](https://httpie.org/). Explore more [about the backend application here](/backend/README.md)
 - What effect did the deploy have? Where did all the Python code end up? Is the API connected with the RDS already? `ssh` in to get all those answers, and more.
 
 ---
