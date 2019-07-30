@@ -44,7 +44,7 @@ During the deploy you can see the Deployment status progress, try to click **Vie
 
 After sucessful deployment, let's try to test the backend application.
 
-1. From the Deployment page, click the Instance ID listed in the table. This is the EC2 Instance ID where the backend application was deployed.
+1. From the Deployment page, click the _Instance ID_ listed in the table. This is the EC2 Instance ID where the backend application was deployed.
 2. On the EC2 dashboard take a loook at instance description, copy the value of **Public DNS (IPv4)**
 3. Try to access from the browser to `http://<Public DNS (IPv4)>:9000/api`
 
