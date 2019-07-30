@@ -8,6 +8,9 @@ env:
     BUILD_DIR: "build"
 
 phases:
+  install:
+    runtime-versions:
+      nodejs: 10
   pre_build:
     commands:
       - echo "Installing npm dependencies and jq..."
