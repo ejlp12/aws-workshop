@@ -29,21 +29,29 @@ Now we are ready to start using it.
 
 Now our CodeDeploy application is ready. Let’s try our first deployment.
 
-1. Under **Deployment groups** section tick your group and in **Actions** select **Deploy new revision**.
-2. On **Repository type** select **"My application is stored in GitHub"**.
-3. In **Connect to GitHub** section type your GitHub account and select **Connect to GitHub**.
-4. Allow AWS to access your GitHub account, if needed.
-5. Enter your repository name in the form _account/repository_.
-6. In **Commit ID** type the commit hash that you want to deploy.
-7. Select **Overwrite the content** below.
-8. Click Deploy.
+1. Under **Deployments** tab, click **Create Deployment** button.
+2. On **Deployment group** select `ProductionDeploy`
+3. On **Revision type** select **"My application is stored in GitHub"**.
+4. Type your Github username (or can be anything to identify your GitHub account) on **GitHub token name** 
+5. Click **Connect to GitHub** button.
+6. Allow AWS to access your GitHub account, if needed. A popup browser window will appear to ask your permission.
+7. Enter your repository name in the form _account/repository_ (eg. `ejlp12/aws-workshop`).
+8. In **Commit ID** type the commit hash that you want to deploy. You can check on your own repo commit page which is a fork  from this repo, the page to check latest commit is similar to `https://github.com/ejlp12/aws-workshop/commits/master`. Just change `ejlp12` to your Github username. Click the "copy" icon to copy the commit hash (eg. `0d5ea42e785f29d66a8dcd3192390319d7cdb138`) 
+9. Keep default the rest of fields.
+8. Click **Create deployment** button.
 
-During the deploy try **View instances** and then **View events** to follow the progress and see what's happening.
+During the deploy you can see the Deployment status progress, try to click **View events** to follow the detailed progress and see what's happening.
+
+After sucessful deployment, let's try to test the backend application.
+
+1. From the Deployment page, click the Instance ID listed in the table. This is the EC2 Instance ID where the backend application was deployed.
+2. On the EC2 dashboard take a loook at instance description, copy the value of **Public DNS (IPv4)**
+3. Try to access from the browser to `http://<Public DNS (IPv4)>:9000/api`
 
 ---
 **Extra mile:** once the deploy finished:
 
-- Try hitting the API with something like [Postman](https://www.getpostman.com/) or [httpie](https://httpie.org/).
+- Try hitting the API with something like [Postman](https://www.getpostman.com/) or [httpie](https://httpie.org/). Explore more [about the backend application here](backend/README.md)
 - What effect did the deploy have? Where did all the Python code end up? Is the API connected with the RDS already? `ssh` in to get all those answers, and more.
 
 ---
