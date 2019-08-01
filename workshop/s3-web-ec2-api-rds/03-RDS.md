@@ -11,7 +11,7 @@
 8. In the "Configure advanced settings" page
    1. On the **Network & Security**, select **No** on **Publicly Accessible**.
    2. Availability Zone: `us-east-1a`.
-   3. On **VPC security groups** select **Choose existing VPC security groups and select the security group you create when [launching the EC2 instance](/workshop/s3-web-ec2-api-rds/02-EC2-instances.md#launch-your-first-ec2-instance).
+   3. On **VPC security groups** select **Choose existing VPC security groups** and select the security group you create when [launching the EC2 instance](/workshop/s3-web-ec2-api-rds/02-EC2-instances.md#launch-your-first-ec2-instance).
    4. On the **Database options**, pick a db name (eg. `WebsiteWorkshopDB`) (again, we will need the database name later)
    5. Examine the other section but you can keep it as it is.
 9. Click **Create database** .
